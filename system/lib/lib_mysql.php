@@ -115,8 +115,9 @@ final class Mysql{
 		$columns = $columns ? $columns : '*';
 		$condition = $condition ? ' where '.$condition : null;
 		$limit = $limit ? ' limit '.$limit : null;
-		$condition = $condition ? 'where '.$condition : NULL;
-		$sql = "select $columns from $table $condition $limit";
+		$condition = $condition ? 'where '.$condition : null;
+		$order_by = $order_by ? $order_by : null; 
+		$sql = "select $columns from $table $condition $order_by $limit";
 		if($debug){
 			echo $sql;
 		}else {

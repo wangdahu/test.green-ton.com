@@ -13,10 +13,11 @@ class homeModel extends Model {
 	}
 
 	public function lists($page = 0, $step= 20) {
-		$limit = $page*$step.", ".$step;
+		$limit = ($page-1)*$step.", ".$step;
 		$selectArray = array(
 			'table' => $this->table,
-			'limit' => $limit
+			'limit' => $limit,
+			'order_by' => 'order by id desc'
 		);
 
 		$lists = array();
@@ -30,4 +31,11 @@ class homeModel extends Model {
 	public function counts() {
 		return $this->db->findCount($this->table);
 	}
+
+	public function save($name, $content, $url='') {
+		$column = 'name, content, addtime';
+		$values = "'".$name."',"."'".$content."',"."'". time()."'";
+		$this->db->insert($this->table, $column, $values);
+	}
+
 }

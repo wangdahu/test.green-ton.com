@@ -7,6 +7,7 @@ class homeController extends Controller {
 
 	public function index() {
 		$data['title'] = '留言板主页';
+		$model = $this->model('home');
 		if($_POST) {
 			extract($_POST);
 			if(!$name || !$content) {
@@ -14,9 +15,9 @@ class homeController extends Controller {
 			}
 			$name = addslashes($name);
 			$content = addslashes($content);
+			$model->save($name, $content);
 		}
 
-		$model = $this->model('home');
 		$page = isset($_GET['page']) ? $_GET['page'] : 1;
 		$limit = 20;
 		$lists = $model->lists($page, $limit);
