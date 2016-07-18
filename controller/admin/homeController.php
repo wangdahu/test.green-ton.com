@@ -6,13 +6,10 @@ class homeController extends Controller {
 
 
 	public function index() {
+		$data['title'] = '后台登陆';
 		$data['test'] = 'admin/home.php';
 		$this->showTemplate('index', $data);
 	}
 
-	public function testDb() {
-		$modTest = $this->model('test');
-		$database = $modTest->testDatabases();
-	}
 
 }

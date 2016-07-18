@@ -34,12 +34,16 @@
 		.input-submit {
 			line-height: 32px;
 			font-size: 18px;
-			color: #333;
-			border: 1px solid #ddd;
+			color: #fff;
+			background: #60b044;
+			cursor: pointer;
+			border: 1px solid #5ca941;
+			box-shadow: 0px 2px 12px 0 #b6d8f4;
 			vertical-align: middle;
 			border-radius: 3px;
 			padding-left: 5px;
 			margin: 5px;
+			margin-left: 385px;
 		}
 		.header-title {
 			padding: 20px;
@@ -62,6 +66,9 @@
 		}
 		.header-top li a {
 			text-decoration: none;
+		}
+		.high {
+			color: red;
 		}
 	</style>
 	<body>

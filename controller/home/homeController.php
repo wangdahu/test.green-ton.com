@@ -16,6 +16,7 @@ class homeController extends Controller {
 			$name = addslashes($name);
 			$content = addslashes($content);
 			$model->save($name, $content);
+			header("location:".$_SERVER["HTTP_REFERER"]);
 		}
 
 		$page = isset($_GET['page']) ? $_GET['page'] : 1;

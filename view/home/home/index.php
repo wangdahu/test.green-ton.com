@@ -18,16 +18,47 @@
 </style>
 <div class='board-form'>
 	<p>文明社会，从理性发帖开始。谢绝低于攻击和人身攻击！谢谢！</p>
-	<form id = "form" method='post' action='#'>
+	<form id = "form" method='post' action=''>
 		<div>
-			<input name = 'name' type ='text' class = 'input-text'  placeholder = '您的名称' />
+			<input name = 'name' id = 'name' type ='text' class = 'required input-text'  placeholder = '您的名称' />
 		</div>
 		<div>
 			<textarea name = "content" rows = "5" clos = "80" >您想对我说点啥？可以畅享语言！</textarea>
 		</div>
 		<div>
-			<input type = 'submit'  name = 'submit' class = 'input-submit' value = '马上留言'/>
+			<button type = 'submit' id='submit'  name = 'submit' class = 'input-submit'/>马上留言</button>
 		</div>
 	</form>
 </div>
 <?php include 'view/home/public/footer.php'; ?>
+<script type='text/javascript'>
+$(function() {
+	$('form .required').each(function() {
+		var required = $('<strong class="high">* </strong>');
+		$(this).parent().append(required);
+	});
+	$('form :input').blur(function() {
+		var parent = $(this).parent();
+		parent.find(".formtips").remove();
+
+		if($(this).is('#name')) {
+			if(this.value == '' || this.value.length < 2) {
+				var errorMsg = '您的名字这么短？至少来个2个字啊！！';
+				parent.append('<span class="formtips onError high">'+errorMsg+'</span>');
+			}
+		}
+	}).keyup(function() {
+		$(this).triggerHandler('blur');
+	}).focus(function() {
+		$(this).triggerHandler('blur');
+	});
+	// 表单验证
+	$('#submit').click(function(){
+		$('form .required').trigger('blur');
+		var numError = $('form .onError').length;
+		if(numError) {
+			return false;
+		}
+	});
+});
+</script>
