@@ -110,10 +110,9 @@ final class Mysql{
 	}
 
 	public function select($selectArray = array(), $debug = '') {
-		$table = $condition = $columns = $limit = null;
+		$table = $order_by = $condition = $columns = $limit = null;
 		extract($selectArray);
 		$columns = $columns ? $columns : '*';
-		$condition = $condition ? ' where '.$condition : null;
 		$limit = $limit ? ' limit '.$limit : null;
 		$condition = $condition ? 'where '.$condition : null;
 		$order_by = $order_by ? $order_by : null; 

@@ -11,7 +11,7 @@ class homeController extends Controller {
 		if($_POST) {
 			extract($_POST);
 			if(!$name || !$content) {
-				echo 'alert("名字和内容都不能为空！！！")';
+				trigger_error("名字和内容都不能为空！！！");
 			}
 			$name = addslashes($name);
 			$content = addslashes($content);

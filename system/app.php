@@ -60,7 +60,6 @@ final class Application {
 	// 加载类库
 	public static function newLib($class_name){
 		$app_lib = $sys_lib = '';
-		var_dump(self::$_config);
 		$app_lib = APP_LIB_PATH.'/'.self::$_config['lib']['prefix'].'_'.$class_name.'.php';
 		$sys_lib = SYS_LIB_PATH.'/lib_'.$class_name.'.php';
 
