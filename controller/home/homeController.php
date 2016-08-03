@@ -27,6 +27,11 @@ class homeController extends Controller {
 		$pageController = $this->controller('page', 'public');
 		$data['pageHtml'] = $pageController->page($page, $totalPage);
 		$data['lists'] = $lists;
+
+		$keywords = $this->model('keywords');
+		$replaceStr = $keywords->replaceStr();
+		$data['replaceStr'] = $replaceStr;
+		
 		$this->showTemplate('index', $data);
 	}
 
@@ -40,6 +45,11 @@ class homeController extends Controller {
 		$pageController = $this->controller('page', 'public');
 		$data['pageHtml'] = $pageController->page($page, $totalPage);
 		$data['lists'] = $lists;
+
+		$keywords = $this->model('keywords');
+		$replaceStr = $keywords->replaceStr();
+		$data['replaceStr'] = $replaceStr;
+
 		$this->showTemplate('lists', $data);
 	}
 

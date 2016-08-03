@@ -48,7 +48,10 @@
 			</span>
 		</div>
 		<div class="list-content">
-			<?php echo $list['content']; ?>
+			<?php
+				$pattern = "/".$replaceStr."/";
+				echo preg_replace($pattern, '<span style="color: red">**</span>', $list['content']);
+			?>
 		</div>
 	</div>
 	<?php }?>
