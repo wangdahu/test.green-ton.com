@@ -6,6 +6,7 @@
 		<meta http-equiv='Cache-Control' content='no-siteapp'>
 		<meta name='renderer' content='webkit|ie-comp|is-stand'>
 		<script type='text/javascript' src='public/static/js/jquery-1.11.3.min.js'></script> 
+		<script type='text/javascript' src='public/static/layer/layer.js'></script> 
 		<title><?php echo $title; ?></title>
 	</head>
 	<style type = 'text/css'>

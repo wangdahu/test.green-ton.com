@@ -39,12 +39,12 @@
 	$(function() {
 		$('#add-submit').click(function() {
 			var keywords = $("[name='keyword']").val();
-			console.log(keywords);
 			$.ajax({
 				type: 'post',
 				url: 'index.php?app=admin&controller=keywords&action=add',
 				data: {keywords: keywords},
 				success: function(msg) {
+					layer.msg('添加成功！');
 					location.reload();
 				}
 			});
@@ -73,6 +73,7 @@
 				data: {id: id},
 				success: function(msg) {
 					parent.remove();
+					layer.msg('删除成功！');
 				}
 			});
 			
